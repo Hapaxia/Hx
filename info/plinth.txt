@@ -1,0 +1,77 @@
+*************
+* Hx/Plinth *
+*************
+by Hapax (2014)
+(github.com/Hapaxia)
+
+C++11 required.
+
+
+
+* Plinth *
+
+ - Generic
+ All functions are templated.
+ Fully templated inclusion. Includes common functions such as min, max, swap, clamp (doesn't allow a value to leave a range), inRange (tests to see if a value is in a range - boundaries included), withinRange (same as inRange but boundaries are not included), pullRange (adjusts the range to match the value if outside of the range). Also defines simple Vector2 and Vector3 structs for doubles, unsigned ints, and signed ints.
+ 
+ - Ascii
+ List of constants for ascii codes.
+ 
+ - Bezier
+ Does bezier calculations. Cubic and quadratic specific (faster) classes are included but base class will do any order. Vertices class allows storage of a multiple vertices for beziers which include a front and back handle (bezier control point).
+
+ - Color
+ Colour manipulation using structs define in this inclusion. Converts RGB, CMYK, HSL, HSV. Gets the relative luminance of colour (supplied in Rgb format), gets an Rgb colour from a value (including hexadecimals constants e.g. 0xffff00), gets an Rgb colour from a hexademical string, converts an Rgb colour into a hexadecimal string. Also returns a (trivially) random colour.
+
+ - Math
+ All functions are templated.
+ Some generic mathematical functions and constants. Defines pi (as a double), and some other typed versions, converts radian to degrees and vice versa, returns the modulus of a floating point division, calculates the dot product of any matching pair of vectors.
+ 
+ - Matrix
+ Class type allowing storage of matrix and operations with other matrices, a scalar, or a Vector.
+ 
+ - NumberBase
+ Converts from decimal (int) to hexadecimal (string) and vice versa.
+ 
+ - Perspective
+ Projects three dimensional points onto the two dimensional screen plane. Uses matrices which can be stored, repeated, and multiplied. Transforms a point or a vector of points - translate, scale, rotate - based upon a given origin.
+ 
+ - Random
+ Small class that generates random numbers within a given range. A range can be stored and re-used or a temporary range can be specified at the time of generating a value. Uses <random> library and is set to Mersenne Twister 19937.
+ 
+ - Strings
+ Upper and lower case conversion, padding (left or right), replacing characters, "passwordify" a string, test if alphanumeric, concatenate a vector of strings into one string.
+ 
+ - Tween
+ All functions are templated.
+ A number of different interpolation functions. Interpolates any type as long as they can use the required operators on the required types. Linear requires only multiplication with a POD (alpha) and addition to its own type. Eases in, out, or both.
+ 
+ 
+ 
+* Plinth/SFML *
+
+ - Generic
+ Get the length of a two- or three-dimensional Vector, or its square (quicker), test for intersection of lines, test if a point in inside a polygon, get a bounding box from a vector of vertices, change the alpha of a colour (using 0-255 or 0.f - 1.f), convert from Vector to Hx's Vector and back, convert to sf::Color from hx::Color::rgb, get sf::Color from a single value (will accept a large integer or a hexadecimal value e.g. sf::Color yellow = hx::Sfml::colorFromValue(0xffff00); ).
+
+ - ExtendedColorList
+ This creates a list of colour constants that you can access in a similar way to the default SFML colours. This list is under sf::Colors and includes many more colours than the defaults.
+ 
+ - Keyboard
+ Allows a string to be returned from a sf::Keyboard::Key which describes the key.
+ 
+ - KeyMap
+ A class that stores a map of key controls and can be accessed via their string key or their index. The map can be modified at any time.
+
+ 
+
+A note about namespaces:
+All of Plinth's standard list is within the root "hx" namespace (not in a sub-namespace)
+In Plinth/SFML, the Extended Color List is injected into the SFML namespace (sf) and the colours are listed under the sub-namespace, "Colors". The rest of Plinth/SFML is in the "hx" namespace and under the sub-namespace "Sfml". All "Vectors" in Plinth/SFML are SFML Vectors unless otherwise stated.
+ 
+Plinth has two lists of inclusions: <Hx/Plinth/standard.hpp> and <Hx/Plinth/sfml.hpp>.
+<Hx/Plinth/all.hpp> includes both of these lists.
+<Hx/Plinth.hpp> simply includes <Hx/Plinth/all.hpp>
+
+Plinth "standard" list (<Hx/Plinth/standard.hpp>) has no external dependencies.
+Plinth "sfml" list (<Hx/Plinth/sfml.hpp>) requires SFML library (sfml-dev.org). Minimum SFML version is 2.0. Recommended 2.2+.
+Including <Hx/Plinth.hpp> or <Hx/Plinth/all.hpp> includes both of these lists so also requires SFML library.
