@@ -1,0 +1,47 @@
+*************
+* Hx/Kairos *
+*************
+by Hapax (2014)
+(github.com/Hapaxia)
+
+C++11 required.
+
+
+
+* Kairos *
+Time module
+
+ - Absorel
+ Signed number type represented using an 'abso'lute value (int) and a 'rel'ative value (double). Used for real numbers that require consistent accuracy.
+ 
+ - Duration
+ Time duration type.
+ 
+ - Stopwatch
+ Pausable stopwatch. Uses Duration. <chrono> is used for clock.
+
+ - Timer
+ Pausable countdown timer. Uses Stopwatch.
+
+ - Continuum
+ Flexible time control. Ability to change the speed of time (including backwards). Uses stopwatch.
+ 
+ - TimestepLite
+ Light class to help with timestep control. Does not keep track of time; this must be done manually.
+ 
+ - Yalpes
+ Event sequence playback system. Plays back events of any structure. Has a number of separate tracks of events. Each track stores them in a vector with a timecode (Absorel), and transfers them into a 'waiting queue' vector if time passes it. Can also automatically remove the events during the following update or can be left and new events will be added to them. Entirely template-based.
+ 
+ 
+ 
+ 
+
+ 
+
+A note about namespaces:
+All of Kairos's functions/classes are in the "hx" namespace and under the sub-namespace "Kairos" (hx::Kairos).
+ 
+Plinth has one list of inclusion: <Hx/Plinth/all.hpp>.
+<Hx/Plinth.hpp> just includes <Hx/Plinth/all.hpp>
+
+Kairos has no external dependencies.
