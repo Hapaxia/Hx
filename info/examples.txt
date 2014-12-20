@@ -1,0 +1,24 @@
+******
+* Hx *
+******
+by Hapax (2014)
+(github.com/Hapaxia)
+
+C++11 required.
+
+
+
+* Examples *
+
+ - TimestepLite (Kairos)
+ Shows the TimestepLite class in action in a simple and small example. Uses Kairos' Stopwatch and also Plinth. Requires SFML.
+
+ - Random (Plinth)
+ Demonstrates a simple usage of the Random class to generate high quality random numbers of any type.
+ 
+ - SFML_ExtendedColorList (Plinth/SFML)
+ Shows some usage of the extended list. Requires SFML.
+ 
+
+Examples require the module they are from. Other modules required will be explicitly stated.
+SFML minimum version is 2.0. Recommended version is 2.2+.
