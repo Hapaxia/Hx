@@ -29,4 +29,4 @@ It is assumed that you know how to build from the include and src folders. It wo
 
 Examples are provided for examples of the use of some of the features. If you think a function/class/include/module should have an example, feel free to get in touch. Examples require the module that they are from and may also require other modules and/or libraries. These will be stated.
 
-Some parts require SFML (sfml-dev.org). Minimum version is 2.0. Recommended version is 2.2+.
+Some parts require SFML (http://sfml-dev.org). Minimum version is 2.0. Recommended version is 2.2+.
