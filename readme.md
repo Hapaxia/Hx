@@ -15,6 +15,8 @@ e.g. for Plinth: `<Hx/Plinth.hpp>` or `<Hx/Plinth/all.hpp>`
 * **Plinth** - foundation module: common, basic, or just small things and can be required by other modules.
 * **Plinth/SFML** - foundation module extension for SFML: common or basic, or just small things for SFML. Can be required by other modules that use SFML.
 * **Kairos** - timing module: event sequencing, flexible clocks (alterable speed and direction), fps information, timestep simplification.
+* **Depot** - file module: loading and saving of text or binary files.
+* **Depot/SFML** - file module extension for SFML: basic resource manager.
 
 Make sure you have the modules in the base folder ("Hx") and add the root of the base folder to your include path, then use the Hx in your inclusions e.g. location "c:/libraries/Hx", path should include "c:/libraries", then - for example - `#include <Hx/Plinth/Generic.hpp>`
 
@@ -25,6 +27,9 @@ Examples are provided for examples of the use of some of the features. If you th
 * Plinth "standard" list (`<Hx/Plinth/standard.hpp>`) has no external dependencies.
 * Plinth "sfml" list (`<Hx/Plinth/sfml.hpp>`) requires SFML library.
 * Including `<Hx/Plinth.hpp>` or `<Hx/Plinth/all.hpp>` includes both of the above lists so also requires SFML library.
+* Depot "standard" list (`<Hx/Depot/standard.hpp>`) has no external dependencies.
+* Depot "sfml" list (`<Hx/Depot/sfml.hpp>`) requires SFML library.
+* Including `<Hx/Depot.hpp>` or `<Hx/Depot/all.hpp>` includes both of the above lists so also requires SFML library.
 * Kairos (`<Hx/Kairos.hpp>`) has no external dependencies.
 
 Some parts require [SFML](http://sfml-dev.org). Minimum version is 2.0. Recommended version is 2.2+.
