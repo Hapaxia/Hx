@@ -1,7 +1,7 @@
 ******
 * Hx *
 ******
-by Hapax (2014)
+by Hapax (2014-2015)
 (http://github.com/Hapaxia)
 
 C++11 required.
