@@ -292,6 +292,11 @@ Rgb trivialRandomColor()
 	return{ static_cast<double>(rand() % (resolution + 1)) / resolution, static_cast<double>(rand() % (resolution + 1)) / resolution, static_cast<double>(rand() % (resolution + 1)) / resolution };
 }
 
+Rgb standardRandomColor()
+{
+	hx::Random random;
+	return{ random.value(0.0, 1.0), random.value(0.0, 1.0), random.value(0.0, 1.0) };
+}
 
 
 

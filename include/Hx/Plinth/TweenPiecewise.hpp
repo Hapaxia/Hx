@@ -3,7 +3,7 @@
 // Hx
 // --
 //
-// Kairos
+// Plinth
 //
 // Copyright(c) 2015 M.J.Silk
 //
@@ -30,37 +30,47 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
+#ifndef HX_PLINTH_TWEENPIECEWISE_HPP
+#define HX_PLINTH_TWEENPIECEWISE_HPP
 
-#include "Stopwatch.hpp"
+#include "Generic.hpp" // for "clamp"
+#include "Tween.hpp" // for interpolating the values between two nodes
+#include <algorithm> // for "std::sort"
+#include <vector>
 
 namespace hx
 {
-	namespace Kairos
+	namespace Tween
 	{
 
-class Continuum
+template <class positionT, class T>
+class Piecewise
 {
 public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+	struct Node
+	{
+		positionT position;
+		T value;
+		bool operator<(const Node& rhs) { return this->position < rhs.position; }
+	};
+
+	//void DEV_outputNodes();
+
+	Piecewise();
+	void clearNodes();
+	void addNode(const Node& node);
+	T getValue(positionT position);
+	void changeNodePosition(unsigned int index, positionT position);
+	void changeNodeValue(unsigned int index, T value);
+	unsigned int getNodeCount();
 
 private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
-
-	inline void updateTime();
+	std::vector<Node> m_nodes;
 };
 
-	} // namespace Kairos
+#include "TweenPiecewise.inl"
+
+	} // namespace Tween
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP
+
+#endif // HX_PLINTH_TWEENPIECEWISE_HPP

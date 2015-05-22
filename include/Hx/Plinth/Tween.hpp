@@ -48,8 +48,26 @@ template <typename T, typename alphaT>
 // Linear Tween (interpolation) of two values using a given "alpha" value of the "blend amount"
 // Type alphaT should be a POD type in range 0 to 1.
 // Type T must have required operators available (*, +)
-// and be able to be multiplied (scaled) by a POD type (alpha)
+// and be able to be multiplied (scaled) by a POD type (alphaT)
 T linear(T start, T end, alphaT alpha);
+
+template <typename T, typename alphaT>
+// Inverse Linear Tween (interpolation) which gives the "alpha" value from the actual value's position in the range
+// Type T must have required operators available (-)
+// and be able to be cast to alphaT
+// Only the final parameter's type is used - to determine the type of alphaT. Its value is discarded.
+alphaT inverseLinear(T start, T end, T value, alphaT alphaType);
+
+template <typename T>
+// Inverse Linear Tween (interpolation) which gives the "alpha" value from the actual value's position in the range
+// Type T must have required operators available (-)
+// and be able to be cast to double (the return type of alpha)
+double inverseLinear(T start, T end, T value);
+
+template <typename toT, typename fromT>
+// Converts value's position in range to its position in a different range.
+// Each range may have its own type.
+toT convertRange(toT toStart, toT toEnd, fromT fromStart, fromT fromEnd, fromT value);
 
 template <typename T, typename alphaT, typename amountT>
 // Eases Tween in and out by "amount". An amount of zero is a linear Tween

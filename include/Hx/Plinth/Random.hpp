@@ -34,6 +34,7 @@
 #define HX_PLINTH_RANDOM_HPP
 
 #include <random>
+#include "Generic.hpp"
 
 namespace hx
 {
@@ -42,6 +43,7 @@ class Random
 {
 public:
 	Random();
+	Random(unsigned int min, unsigned int max);
 
 	unsigned int rand(unsigned int rangeSize);
 

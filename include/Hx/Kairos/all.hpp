@@ -38,6 +38,6 @@
 #include "Fps.hpp"
 #include "Stopwatch.hpp"
 #include "Timer.hpp"
-//#include "Timestep.hpp" // coming soon...
+#include "Timestep.hpp"
 #include "TimestepLite.hpp"
 #include "Yalpes.hpp"

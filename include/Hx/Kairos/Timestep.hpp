@@ -30,37 +30,51 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
+#ifndef HX_KAIROS_TIMESTEP_HPP
+#define HX_KAIROS_TIMESTEP_HPP
 
-#include "Stopwatch.hpp"
+#include "Continuum.hpp"
 
 namespace hx
 {
 	namespace Kairos
 	{
 
-class Continuum
+class Timestep
 {
 public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+	Timestep();
+	void setStep(double step);
+	double getStep();
+	float getStepAsFloat();
+	void resetTime();
+	bool isUpdateRequired();
+	double getInterpolationAlpha();
+	float getInterpolationAlphaAsFloat();
+	void addFrame();
+	double getOverall(); // amount of time processed (whole steps only)
+	float getOverallAsFloat();
+	double getTime(); // amount of time accumulated
+	float getTimeAsFloat();
+	void setMaxAccumulation(double maxAccumulation);
+	void setTimeSpeed(double timeSpeed);
+	double getTimeSpeed();
+	void pause();
+	void unpause();
+	bool isPaused();
 
 private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
+	hx::Kairos::Continuum m_continuum;
+	double m_step;
+	double m_accumulator;
+	double m_overall;
+	double m_maxAccumulation;
+	double m_timeSpeed;
 
-	inline void updateTime();
+	bool shouldBeZero(double a);
 };
 
 	} // namespace Kairos
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP
+
+#endif // HX_KAIROS_TIMESTEP_HPP

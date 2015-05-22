@@ -84,7 +84,7 @@ std::string password(const std::string& string, char shieldChar = '*');
 
 // [does not alter any parameters]
 // replace any character in string that exists in supplementary string with specific character.
-// e.g. replace 'a' with '-': Hapax -> H-p-x
+// e.g. replace 'a' with '-': Hapax -> H-p-x , replace "Hpx" with '-': Hapax -> -a-p-
 std::string replaceChars(std::string string, const std::string& charactersToReplace, char characterToReplaceWith);
 
 // [does not alter any parameters]

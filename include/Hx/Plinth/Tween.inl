@@ -40,6 +40,32 @@ T linear(T start, T end, alphaT alpha)
 	return static_cast<T>(start * (1 - alpha) + end * alpha); // blend from low to high using alpha
 }
 
+template <typename T, typename alphaT>
+// Inverse Linear Tween (interpolation) which gives the "alpha" value from the actual value's position in the range
+// Type T must have required operators available (-)
+// and be able to be cast to a double
+alphaT inverseLinear(T start, T end, T value, alphaT alphaType)
+{
+	return static_cast<alphaT>(value - start) / (end - start);
+}
+
+template <typename T>
+// Inverse Linear Tween (interpolation) which gives the "alpha" value from the actual value's position in the range
+// Type T must have required operators available (-)
+// and be able to be cast to double (the return type of alpha)
+double inverseLinear(T start, T end, T value)
+{
+	return static_cast<double>(value - start) / (end - start);
+}
+
+template <typename toT, typename fromT>
+// Converts value's position in range to its position in a different range.
+// Each range may have its own type.
+toT convertRange(toT toStart, toT toEnd, fromT fromStart, fromT fromEnd, fromT value)
+{
+	return linear(toStart, toEnd, inverseLinear(fromStart, fromEnd, value));
+}
+
 template <typename T, typename alphaT, typename amountT>
 // Eases Tween in and out by "amount". An amount of zero is a linear Tween
 T easeInOut(T start, T end, alphaT alpha, amountT amount)

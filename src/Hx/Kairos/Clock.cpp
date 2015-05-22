@@ -30,37 +30,48 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
-
-#include "Stopwatch.hpp"
+#include "Clock.hpp"
 
 namespace hx
 {
 	namespace Kairos
 	{
 
-class Continuum
+Clock::Clock()
 {
-public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+}
 
-private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
+Clock::Time Clock::getCurrentTime()
+{
+	return{ getCurrentHour(), getCurrentMinute(), getCurrentSecond() };
+}
 
-	inline void updateTime();
-};
+unsigned int Clock::getCurrentHour()
+{
+	return static_cast<unsigned int>(getCurrentTimePointInSeconds() % m_secondsInOneDay / m_secondsInOneHour);
+}
+
+unsigned int Clock::getCurrentMinute()
+{
+	return static_cast<unsigned int>(getCurrentTimePointInSeconds() % m_secondsInOneHour / m_secondsInOneMinute);
+}
+
+unsigned int Clock::getCurrentSecond()
+{
+	return static_cast<unsigned int>(getCurrentTimePointInSeconds() % m_secondsInOneMinute);
+}
+
+
+
+// PRIVATE
+
+unsigned long long int Clock::getCurrentTimePointInSeconds()
+{
+	using std::chrono::system_clock;
+	system_clock::time_point timePoint = system_clock::now();
+	system_clock::duration duration = timePoint.time_since_epoch();
+	return duration.count() * system_clock::period::num / system_clock::period::den;
+}
 
 	} // namespace Kairos
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP

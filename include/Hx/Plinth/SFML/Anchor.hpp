@@ -1,0 +1,146 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// Hx
+// --
+//
+// Plinth
+//
+// Copyright(c) 2015 M.J.Silk
+//
+// This software is provided 'as-is', without any express or implied
+// warranty.In no event will the authors be held liable for any damages
+// arising from the use of this software.
+//
+// Permission is granted to anyone to use this software for any purpose,
+// including commercial applications, and to alter it and redistribute it
+// freely, subject to the following restrictions :
+//
+// 1. The origin of this software must not be misrepresented; you must not
+// claim that you wrote the original software.If you use this software
+// in a product, an acknowledgment in the product documentation would be
+// appreciated but is not required.
+//
+// 2. Altered source versions must be plainly marked as such, and must not be
+// misrepresented as being the original software.
+//
+// 3. This notice may not be removed or altered from any source distribution.
+//
+// M.J.Silk
+// MJSilk2@gmail.com
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#ifndef HX_PLINTH_ANCHOR_HPP
+#define HX_PLINTH_ANCHOR_HPP
+
+#include <SFML/System/Vector2.hpp>
+
+namespace sf
+{
+	namespace Anchor
+	{
+		namespace Local
+		{
+
+template <class T>
+sf::Vector2f getTopLeft(const T& object)
+{
+	return{ object.getLocalBounds().left, object.getLocalBounds().top };
+}
+template <class T>
+sf::Vector2f getTopCenter(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width / 2.f, object.getLocalBounds().top };
+}
+template <class T>
+sf::Vector2f getTopRight(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width, object.getLocalBounds().top };
+}
+template <class T>
+sf::Vector2f getCenterLeft(const T& object)
+{
+	return{ object.getLocalBounds().left, object.getLocalBounds().top + object.getLocalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getCenter(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width / 2.f, object.getLocalBounds().top + object.getLocalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getCenterRight(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width, object.getLocalBounds().top + object.getLocalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getBottomLeft(const T& object)
+{
+	return{ object.getLocalBounds().left, object.getLocalBounds().top + object.getLocalBounds().height };
+}
+template <class T>
+sf::Vector2f getBottomCenter(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width / 2.f, object.getLocalBounds().top + object.getLocalBounds().height };
+}
+template <class T>
+sf::Vector2f getBottomRight(const T& object)
+{
+	return{ object.getLocalBounds().left + object.getLocalBounds().width, object.getLocalBounds().top + object.getLocalBounds().height };
+}
+
+
+		} // namespace Local
+		namespace Global
+		{
+
+template <class T>
+sf::Vector2f getTopLeft(const T& object)
+{
+	return{ object.getGlobalBounds().left, object.getGlobalBounds().top };
+}
+template <class T>
+sf::Vector2f getTopCenter(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width / 2.f, object.getGlobalBounds().top };
+}
+template <class T>
+sf::Vector2f getTopRight(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width, object.getGlobalBounds().top };
+}
+template <class T>
+sf::Vector2f getCenterLeft(const T& object)
+{
+	return{ object.getGlobalBounds().left, object.getGlobalBounds().top + object.getGlobalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getCenter(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width / 2.f, object.getGlobalBounds().top + object.getGlobalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getCenterRight(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width, object.getGlobalBounds().top + object.getGlobalBounds().height / 2.f };
+}
+template <class T>
+sf::Vector2f getBottomLeft(const T& object)
+{
+	return{ object.getGlobalBounds().left, object.getGlobalBounds().top + object.getGlobalBounds().height };
+}
+template <class T>
+sf::Vector2f getBottomCenter(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width / 2.f, object.getGlobalBounds().top + object.getGlobalBounds().height };
+}
+template <class T>
+sf::Vector2f getBottomRight(const T& object)
+{
+	return{ object.getGlobalBounds().left + object.getGlobalBounds().width, object.getGlobalBounds().top + object.getGlobalBounds().height };
+}
+
+		} // namespace Global
+	} // namespace Anchor
+} // namespace sf
+
+#endif // HX_PLINTH_ANCHOR_HPP

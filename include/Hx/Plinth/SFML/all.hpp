@@ -33,8 +33,10 @@
 #ifndef HX_PLINTH_SFML_ALL_HPP
 #define HX_PLINTH_SFML_ALL_HPP
 
+#include "Anchor.hpp"
 #include "Generic.hpp"
 #include "ExtendedColorList.hpp"
+#include "Image.hpp"
 #include "Keyboard.hpp"
 #include "KeyMap.hpp"
 

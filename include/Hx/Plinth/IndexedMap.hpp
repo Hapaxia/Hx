@@ -3,7 +3,7 @@
 // Hx
 // --
 //
-// Kairos
+// Plinth
 //
 // Copyright(c) 2015 M.J.Silk
 //
@@ -30,37 +30,49 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
+#ifndef HX_PLINTH_INDEXEDMAP_HPP
+#define HX_PLINTH_INDEXEDMAP_HPP
 
-#include "Stopwatch.hpp"
+#include <vector>
+#include <string>
+#include <algorithm> // for remove_if
 
 namespace hx
 {
-	namespace Kairos
-	{
 
-class Continuum
+template <class keyT, class T>
+class IndexedMap
 {
 public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+	IndexedMap();
+	void add(const keyT& key, const T& value);
+	void add(const T& value);
+	void remove(const keyT& key);
+	void remove(unsigned int index);
+	T get(const keyT& key);
+	T get(unsigned int index);
+	T& access(const keyT& key);
+	T& access(unsigned int index);
+	bool valid(const keyT& key);
+	bool valid(unsigned int index);
+	void set(const keyT& key, const T& value);
+	void set(unsigned int index, const T& value);
+	keyT getKey(unsigned int index);
+	unsigned int getSize();
+	void clear();
 
 private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
+	struct Element
+	{
+		keyT key;
+		T value;
+	};
+	std::vector<Element> m_elements;
 
-	inline void updateTime();
+	bool indexIsValid(unsigned int index);
 };
 
-	} // namespace Kairos
+#include "IndexedMap.inl"
+
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP
+#endif // HX_PLINTH_INDEXEDMAP_HPP

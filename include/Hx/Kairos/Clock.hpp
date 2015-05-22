@@ -30,37 +30,40 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
+#ifndef HX_KAIROS_CLOCK_HPP
+#define HX_KAIROS_CLOCK_HPP
 
-#include "Stopwatch.hpp"
+#include <chrono>
 
 namespace hx
 {
 	namespace Kairos
 	{
 
-class Continuum
+class Clock
 {
 public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+	struct Time
+	{
+		unsigned int hour;
+		unsigned int minute;
+		unsigned int second;
+	};
+
+	Clock();
+	Time getCurrentTime();
+	unsigned int getCurrentHour();
+	unsigned int getCurrentMinute();
+	unsigned int getCurrentSecond();
 
 private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
+	const unsigned long long int m_secondsInOneMinute{ 60 };
+	const unsigned long long int m_secondsInOneHour{ 3600 };
+	const unsigned long long int m_secondsInOneDay{ 86400 };
 
-	inline void updateTime();
+	unsigned long long int getCurrentTimePointInSeconds();
 };
 
 	} // namespace Kairos
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP
+#endif // HX_KAIROS_CLOCK_HPP

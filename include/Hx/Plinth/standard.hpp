@@ -37,11 +37,14 @@
 #include "bezier.hpp"
 #include "Color.hpp"
 #include "Generic.hpp"
+#include "IndexedMap.hpp"
 #include "Math.hpp"
 #include "Matrix.hpp"
 #include "NumberBase.hpp"
 #include "Perspective.hpp"
+#include "Random.hpp"
 #include "Strings.hpp"
 #include "Tween.hpp"
+#include "TweenPiecewise.hpp"
 
 #endif // HX_PLINTH_STANDARD_HPP

@@ -44,11 +44,13 @@ m_speed(1.0)
 {
 }
 
-void Continuum::reset()
+Duration Continuum::reset()
 {
+	Duration returnTime{ getTime() };
+	m_stopwatch.restart();
 	m_time.zero();
 	m_speed = 1.0;
-	m_stopwatch.restart();
+	return returnTime;
 }
 
 void Continuum::go()
@@ -78,6 +80,10 @@ Duration Continuum::getTime()
 	return m_time;
 }
 
+bool Continuum::isStopped()
+{
+	return m_stopwatch.isPaused();
+}
 
 
 

@@ -42,6 +42,13 @@ m_max(100u)
 	randomSeed();
 }
 
+Random::Random(unsigned int min, unsigned int max) :
+m_min(min),
+m_max(max)
+{
+	randomSeed();
+}
+
 unsigned int Random::rand(unsigned int rangeSize)
 {
 	return std::uniform_int_distribution<unsigned int>{0, rangeSize - 1}(m_generator);
@@ -49,17 +56,17 @@ unsigned int Random::rand(unsigned int rangeSize)
 
 unsigned int Random::uIntValue()
 {
-	return std::uniform_int_distribution<unsigned int>{m_min, m_max}(m_generator);
+	return uIntValue(m_min, m_max);
 }
 
 int Random::intValue()
 {
-	return static_cast<int>(std::uniform_int_distribution<unsigned int>{m_min, m_max}(m_generator));
+	return intValue(m_min, m_max);
 }
 
 double Random::doubleValue()
 {
-	return std::uniform_real_distribution<double>{static_cast<double>(m_min), static_cast<double>(m_max)}(m_generator);
+	return doubleValue(m_min, m_max);
 }
 
 unsigned int Random::value(unsigned int min, unsigned int max)
@@ -79,27 +86,37 @@ double Random::value(double min, double max)
 
 unsigned int Random::uIntValue(unsigned int min, unsigned int max)
 {
+	if (min > max)
+		hx::swap(min, max);
 	return std::uniform_int_distribution<unsigned int>{min, max}(m_generator);
 }
 
 int Random::intValue(int min, int max)
 {
+	if (min > max)
+		hx::swap(min, max);
 	return static_cast<int>(std::uniform_int_distribution<int>{min, max}(m_generator));
 }
 
 double Random::doubleValue(double min, double max)
 {
+	if (min > max)
+		hx::swap(min, max);
 	return std::uniform_real_distribution<double>{min, max}(m_generator);
 }
 
 void Random::setMinimum(unsigned int min)
 {
 	m_min = min;
+	if (m_min > m_max)
+		hx::swap(m_min, m_max);
 }
 
 void Random::setMaximum(unsigned int max)
 {
 	m_max = max;
+	if (m_min > m_max)
+		hx::swap(m_min, m_max);
 }
 
 void Random::setRange(unsigned int min, unsigned int max)

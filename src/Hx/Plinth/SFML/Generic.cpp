@@ -258,14 +258,33 @@ sf::FloatRect boundingBox(const std::vector<sf::Vector2f>& vertices)
 
 void changeAlpha(sf::Color& color, unsigned int alpha)
 {
-	sf::Color temp{ color };
-	temp.a = hx::clamp(alpha, 0u, 255u);
-	color = temp;
+	color.a = hx::clamp(alpha, 0u, 255u);
 }
 
 void changeAlpha(sf::Color& color, float alpha)
 {
+	changeAlpha(color, static_cast<double>(alpha));
+}
+
+void changeAlpha(sf::Color& color, double alpha)
+{
 	changeAlpha(color, hx::Tween::linear(0u, 255u, alpha));
+}
+
+sf::Color colorFromColorAndAlpha(sf::Color color, unsigned int alpha)
+{
+	color.a = hx::clamp(alpha, 0u, 255u);
+	return color;
+}
+
+sf::Color colorFromColorAndAlpha(sf::Color color, float alpha)
+{
+	return colorFromColorAndAlpha(color, hx::Tween::linear(0u, 255u, alpha));
+}
+
+sf::Color colorFromColorAndAlpha(sf::Color color, double alpha)
+{
+	return colorFromColorAndAlpha(color, hx::Tween::linear(0u, 255u, alpha));
 }
 
 sf::Vector2f roundVector(const sf::Vector2f& vector)

@@ -34,10 +34,9 @@
 #define HX_PLINTH_SFML_KEYMAP_HPP
 
 #include <SFML/Window/Keyboard.hpp>
-//#include "Keyboard.hpp"
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <algorithm> // for remove_if
 
 namespace hx
 {

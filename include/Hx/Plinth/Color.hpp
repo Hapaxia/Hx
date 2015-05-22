@@ -36,6 +36,7 @@
 #include "Generic.hpp"
 #include "Math.hpp"
 #include "NumberBase.hpp"
+#include "Random.hpp"
 #include "Strings.hpp"
 #include "Tween.hpp"
 #include <string>
@@ -97,6 +98,7 @@ Rgb rgbFromHex(std::string hex); // must be 6 or fewer characters long e.g. FF23
 Rgb rgbFromValue(long int value); // base 256 is assumed i.e. components are assumed to have a range of [0, 255]
 
 Rgb trivialRandomColor();
+Rgb standardRandomColor();
 
 	} // namespace Color
 } // namespace hx

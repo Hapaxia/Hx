@@ -3,7 +3,7 @@
 // Hx
 // --
 //
-// Kairos
+// Plinth
 //
 // Copyright(c) 2015 M.J.Silk
 //
@@ -30,37 +30,24 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef HX_KAIROS_CONTINUUM_HPP
-#define HX_KAIROS_CONTINUUM_HPP
+#ifndef HX_PLINTH_SFML_IMAGE_HPP
+#define HX_PLINTH_SFML_IMAGE_HPP
 
-#include "Stopwatch.hpp"
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/Color.hpp>
+#include <SFML/System/Vector2.hpp>
 
 namespace hx
 {
-	namespace Kairos
+	namespace Sfml
 	{
+		namespace Image
+		{
 
-class Continuum
-{
-public:
-	Continuum();
-	Duration reset();
-	void go();
-	void stop();
-	void setSpeed(double speed);
-	double getSpeed();
-	Duration getTime();
-	bool isStopped();
+void clearWithColorButRetainTransparency(sf::Image& image, sf::Color color = sf::Color(255, 255, 255, 255));
 
-private:
-	Stopwatch m_stopwatch;
-	Duration m_time;
-	double m_speed;
-	//double m_isPaused;
-
-	inline void updateTime();
-};
-
-	} // namespace Kairos
+		} // namspace Image
+	} // namespace Sfml
 } // namespace hx
-#endif // HX_KAIROS_CONTINUUM_HPP
+
+#endif // HX_PLINTH_SFML_IMAGE_HPP
