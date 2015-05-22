@@ -24,13 +24,19 @@ Time module
  Pausable countdown timer. Uses Stopwatch.
 
  - Continuum
- Flexible time control. Ability to change the speed of time (including backwards). Uses stopwatch.
+ Flexible time control. Ability to change the speed of time (including backwards). Uses Stopwatch.
  
  - TimestepLite
  Light class to help with timestep control. Does not keep track of time; this must be done manually.
  
+ - Timestep
+ Timestep control. Keeps track of time internally so no need for external clock. Has more features than the "lite" version such as an ability to pause and setting a maximum time accumulation. Uses Continuum.
+ 
  - Yalpes
- Event sequence playback system. Plays back events of any structure. Has a number of separate tracks of events. Each track stores them in a vector with a timecode (Absorel), and transfers them into a 'waiting queue' vector if time passes it. Can also automatically remove the events during the following update or can be left and new events will be added to them. Entirely template-based.
+ Event sequence playback system. Plays back events of any structure. Has a number of separate tracks of events. Each track stores them in a vector with a timecode (Absorel), and transfers them into a 'waiting queue' vector if time passes it. Can also automatically remove the events during the following update or can be left and new events will be added to them. Entirely template-based. Uses Absorel (for current timecode position), Duration (for current play time), and Stopwatch.
+ 
+ - Fps
+ Simple class for keeping track of frames per second. Updates once per second. Uses Stopwatch.
  
  
  
@@ -41,7 +47,7 @@ Time module
 A note about namespaces:
 All of Kairos's functions/classes are in the "hx" namespace and under the sub-namespace "Kairos" (hx::Kairos).
  
-Plinth has one list of inclusion: <Hx/Plinth/all.hpp>.
-<Hx/Plinth.hpp> just includes <Hx/Plinth/all.hpp>
+Kairos has one list of inclusion: <Hx/Kairos/all.hpp>.
+<Hx/Kairos.hpp> just includes <Hx/Kairos/all.hpp>
 
 Kairos has no external dependencies.

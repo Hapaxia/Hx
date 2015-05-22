@@ -22,8 +22,12 @@ Foundation module
  Does bezier calculations. Cubic and quadratic specific (faster) classes are included but base class will do any order. Vertices class allows storage of a multiple vertices for beziers which include a front and back handle (bezier control point).
 
  - Color
- Colour manipulation using structs define in this inclusion. Converts RGB, CMYK, HSL, HSV. Gets the relative luminance of colour (supplied in Rgb format), gets an Rgb colour from a value (including hexadecimals constants e.g. 0xffff00), gets an Rgb colour from a hexademical string, converts an Rgb colour into a hexadecimal string. Also returns a (trivially) random colour.
+ Colour manipulation using structs define in this inclusion. Converts RGB, CMYK, HSL, HSV. Gets the relative luminance of colour (supplied in Rgb format), gets an Rgb colour from a value (including hexadecimals constants e.g. 0xffff00), gets an Rgb colour from a hexademical string, converts an Rgb colour into a hexadecimal string. Also returns a (trivially) random colour (uses rand()) or a standard random colour (truly random r, g, and b).
 
+ - IndexedMap
+ Class is templated.
+ Container to allow an indexed map. Similar to std::map but also allows access through indices.
+ 
  - Math
  All functions are templated.
  Some generic mathematical functions and constants. Defines pi (as a double), and some other typed versions, converts radian to degrees and vice versa, returns the modulus of a floating point division, calculates the dot product of any matching pair of vectors.
@@ -39,14 +43,18 @@ Foundation module
  
  - Random
  Small class that generates random numbers within a given range. A range can be stored and re-used or a temporary range can be specified at the time of generating a value. Uses <random> library and is set to Mersenne Twister 19937.
- 
+
  - Strings
  Upper and lower case conversion, padding (left or right), replacing characters, "passwordify" a string, test if alphanumeric, concatenate a vector of strings into one string.
  
  - Tween
  All functions are templated.
  A number of different interpolation functions. Interpolates any type as long as they can use the required operators on the required types. Linear requires only multiplication with a POD (alpha) and addition to its own type. Eases in, out, or both.
- 
+  
+ - TweenPiecewise
+ Class is templated.
+ Allows piecewise linear interpolation. 
+  
  
  
 * Plinth/SFML *
@@ -63,6 +71,12 @@ Foundation module
  - KeyMap
  A class that stores a map of key controls and can be accessed via their string key or their index. The map can be modified at any time.
 
+ - Anchor
+ Get positions of corners or edge centres using either local or global bounds. Bounds are axis-aligned boxes.
+ 
+ - Image
+ Clears the image with a single colour but retains its original transparency.
+ 
  
 
 A note about namespaces:
