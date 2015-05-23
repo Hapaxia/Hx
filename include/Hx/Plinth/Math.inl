@@ -34,14 +34,14 @@ template<class T>
 // returns angle given in degrees as radians
 inline T radiansFromDegrees(T degrees)
 {
-	return degrees * pi / 180;
+	return static_cast<T>(static_cast<double>(degrees) * pi / 180);
 }
 
 template<class T>
 // returns angle given in radians as degrees
 inline T degreesFromRadians(T radians)
 {
-	return radians * 180 / pi;
+	return static_cast<T>(static_cast<double>(radians)* 180 / pi);
 }
 
 template<class T>
