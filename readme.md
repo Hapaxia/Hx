@@ -1,6 +1,10 @@
-#Hx
-*by Hapax (2014-2015)*
-(http://github.com/Hapaxia)
+# Important Notice
+### This large library (only the basic - or "lite" - version is hosted on GitHub) is being split into its modules. Each module will be a separate project/library/repository that is independant of the others (unless it specifically requires another to be used but that will be kept to a minimum).
+### The first module to be separated is [Selba Ward](https://github.com/Hapaxia/SelbaWard/wiki).
+
+---
+
+**Hx** _by Hapax (2014-2015)_
 
 C++11 required.
 
