@@ -1,6 +1,9 @@
 # Important Notice
 ### This large library (only the basic - or "lite" - version is hosted on GitHub) is being split into its modules. Each module will be a separate project/library/repository that is independant of the others (unless it specifically requires another to be used but that will be kept to a minimum).
 ### The first module to be separated is [Selba Ward](https://github.com/Hapaxia/SelbaWard/wiki).
+### The second module to be separated is [Kairos](https://github.com/Hapaxia/Kairos/wiki).
+
+<sup>Note: the modules that are here will remain here (even the ones that have been split) for now but will not be updated here.</sup>
 
 ---
 
