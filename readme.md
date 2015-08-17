@@ -3,7 +3,7 @@
 ### Modules' new location:
 - [Selba Ward](https://github.com/Hapaxia/SelbaWard/wiki)
 - [Kairos](https://github.com/Hapaxia/Kairos/wiki)
-- [Plinth](https://github.com/Hapaxia/Plinth/wiki)
+- [Plinth](https://github.com/Hapaxia/Plinth/wiki) (incorporated Depot module)
 
 <sup>Note: the modules that are here will remain here (even the ones that have been split) for now but will not be updated here.</sup>
 
